@@ -28,11 +28,11 @@
         <li><a href="courses.html" class="active">الدورات</a></li>
         <li><a href="index.html#teacher">عن المدرس</a></li>
         <li><a href="index.html#pricing">الاشتراكات</a></li>
-        <li><a href="index.html#contact">تواصل معنا</a></li>
+        <li><a href="login.html">تسجيل الدخول</a></li>
       </ul>
 
       <div class="nav-actions">
-        <a href="index.html#contact" class="btn btn-primary">سجّل الآن</a>
+        <a href="login.html" class="btn btn-primary">سجّل الآن</a>
         <button class="menu-toggle" aria-label="القائمة">☰</button>
       </div>
     </div>
@@ -58,143 +58,110 @@
       <!-- شريط الفلاتر -->
       <div class="filters-bar">
         <button class="filter-btn active" data-filter="all">الكل</button>
-        <button class="filter-btn" data-filter="beginner">مبتدئ</button>
-        <button class="filter-btn" data-filter="intermediate">متوسط</button>
-        <button class="filter-btn" data-filter="advanced">متقدم</button>
-        <button class="filter-btn" data-filter="all-levels">جميع المستويات</button>
+        <button class="filter-btn" data-filter="first">أولى ثانوي</button>
+        <button class="filter-btn" data-filter="second">تانية ثانوي</button>
+        <button class="filter-btn" data-filter="third">تالتة ثانوي</button>
+        <button class="filter-btn" data-filter="bac">بكالوريا</button>
         <div class="search-box">
           <span class="icon">🔍</span>
           <input type="text" class="search-input" placeholder="ابحث عن دورة..." />
         </div>
       </div>
 
-      <p class="results-count">عدد الكورسات المعروضة: 8</p>
+      <p class="results-count">عدد الكورسات المعروضة: 5</p>
 
       <div class="courses-grid">
 
         <!-- 1 -->
-        <article class="course-card reveal" data-level="all-levels" data-title="قواعد اللغة العربية النحو والصرف إعراب" data-desc="من الإعراب الميسر">
-          <div class="course-banner banner-1"><span>📖</span><span class="course-level">جميع المستويات</span></div>
+        <article class="course-card reveal" data-level="first" data-title="أولى ثانوي لغة عربية نحو بلاغة أدب نصوص" data-desc="منهج أولى ثانوي كامل">
+          <div class="course-banner banner-1"><span>📘</span><span class="course-level">أولى ثانوي</span></div>
           <div class="course-body">
-            <h3>قواعد اللغة العربية (النحو والصرف)</h3>
-            <p class="course-desc">من الإعراب الميسر إلى الجملة الفعلية والاسمية، بطريقة عملية مبسطة تناسب الجميع.</p>
+            <h3>كورس أولى ثانوي — اللغة العربية</h3>
+            <p class="course-desc">منهج أولى ثانوي كامل: نحو وبلاغة وأدب ونصوص، بأسلوب مبسّط مع حل نماذج امتحانات واقعية.</p>
             <div class="course-meta">
-              <span>🎓 32 درسًا</span><span>⏱ 14 ساعة</span><span>⭐ 4.9</span>
+              <span>🎓 30 درسًا</span><span>⏱ 12 ساعة</span><span>⭐ 4.9</span>
             </div>
             <div class="course-footer">
-              <span class="course-price">350 <small>500</small> ج.م</span>
+              <div class="course-cost">
+                <span class="course-price">300 ج.م<span class="course-per"> / شهريًا</span></span>
+                <span class="course-deal">🎁 3 شهور بخصم: 600 ج.م</span>
+              </div>
               <a href="course.html" class="btn btn-primary btn-small">عرض الدورة</a>
             </div>
           </div>
         </article>
 
         <!-- 2 -->
-        <article class="course-card reveal" data-level="intermediate" data-title="البلاغة العربية البيان البديع تشبيه استعارة" data-desc="أتقن فنون التشبيه">
-          <div class="course-banner banner-2"><span>🎨</span><span class="course-level">متوسط</span></div>
+        <article class="course-card reveal" data-level="second" data-title="تانية ثانوي لغة عربية نحو بلاغة أدب" data-desc="شرح كامل لمنهج تانية ثانوي">
+          <div class="course-banner banner-2"><span>📗</span><span class="course-level">تانية ثانوي</span></div>
           <div class="course-body">
-            <h3>البلاغة العربية: البيان والبديع</h3>
-            <p class="course-desc">أتقن فنون التشبيه والاستعارة والمجاز، وارتقِ بأسلوبك في الكتابة والتعبير.</p>
+            <h3>كورس تانية ثانوي — اللغة العربية</h3>
+            <p class="course-desc">شرح كامل لمنهج تانية ثانوي مع تركيز على النحو والبلاغة والمهارات، وتدريبات تفاعلية مستمرة.</p>
             <div class="course-meta">
-              <span>🎓 24 درسًا</span><span>⏱ 10 ساعات</span><span>⭐ 4.8</span>
+              <span>🎓 32 درسًا</span><span>⏱ 13 ساعة</span><span>⭐ 4.8</span>
             </div>
             <div class="course-footer">
-              <span class="course-price">300 <small>450</small> ج.م</span>
+              <div class="course-cost">
+                <span class="course-price">300 ج.م<span class="course-per"> / شهريًا</span></span>
+                <span class="course-deal">🎁 3 شهور بخصم: 600 ج.م</span>
+              </div>
               <a href="course.html" class="btn btn-primary btn-small">عرض الدورة</a>
             </div>
           </div>
         </article>
 
         <!-- 3 -->
-        <article class="course-card reveal" data-level="advanced" data-title="الأدب العربي عبر العصور شعر نثر نصوص" data-desc="رحلة أدبية">
-          <div class="course-banner banner-3"><span>🏛</span><span class="course-level">متقدم</span></div>
+        <article class="course-card reveal" data-level="third" data-title="تالتة ثانوي لغة عربية ثانوية عامة مراجعة امتحانات" data-desc="مراجعة شاملة للثانوية العامة">
+          <div class="course-banner banner-3"><span>🎯</span><span class="course-level">تالتة ثانوي</span></div>
           <div class="course-body">
-            <h3>الأدب العربي عبر العصور</h3>
-            <p class="course-desc">رحلة أدبية من العصر الجاهلي إلى الحديث: نصوص مختارة، تحليل، ونقاش عميق.</p>
+            <h3>كورس تالتة ثانوي — اللغة العربية</h3>
+            <p class="course-desc">مراجعة شاملة لمنهج الثانوية العامة: قواعد وبلاغة وأدب ونصوص + نماذج امتحانات محلولة.</p>
             <div class="course-meta">
-              <span>🎓 28 درسًا</span><span>⏱ 12 ساعة</span><span>⭐ 4.9</span>
+              <span>🎓 36 درسًا</span><span>⏱ 15 ساعة</span><span>⭐ 5.0</span>
             </div>
             <div class="course-footer">
-              <span class="course-price">380 <small>550</small> ج.م</span>
+              <div class="course-cost">
+                <span class="course-price">300 ج.م<span class="course-per"> / شهريًا</span></span>
+                <span class="course-deal">🎁 3 شهور بخصم: 600 ج.م</span>
+              </div>
               <a href="course.html" class="btn btn-primary btn-small">عرض الدورة</a>
             </div>
           </div>
         </article>
 
         <!-- 4 -->
-        <article class="course-card reveal" data-level="all-levels" data-title="تحفيظ القرآن الكريم بالتجويد أحكام" data-desc="حفظ وإتقان أحكام التجويد">
-          <div class="course-banner banner-4"><span>🕌</span><span class="course-level">جميع المستويات</span></div>
+        <article class="course-card reveal" data-level="first-bac" data-title="أولى ثانوي بكالوريا لغة عربية نظام جديد" data-desc="منهج البكالوريا أولى ثانوي">
+          <div class="course-banner banner-4"><span>📖</span><span class="course-level">أولى ثانوي بكالوريا</span></div>
           <div class="course-body">
-            <h3>تحفيظ القرآن الكريم بالتجويد</h3>
-            <p class="course-desc">حفظ وإتقان أحكام التجويد بأسلوب تدريجي ميسّر مع المراجعة المستمرة.</p>
+            <h3>كورس أولى ثانوي بكالوريا</h3>
+            <p class="course-desc">منهج أولى ثانوي بنظام البكالوريا الجديد: شرح وافٍ وتدريبات على نظام الأسئلة الحديث.</p>
             <div class="course-meta">
-              <span>🎓 40 درسًا</span><span>⏱ 18 ساعة</span><span>⭐ 5.0</span>
+              <span>🎓 28 درسًا</span><span>⏱ 11 ساعة</span><span>⭐ 4.8</span>
             </div>
             <div class="course-footer">
-              <span class="course-price">500 <small>700</small> ج.م</span>
+              <div class="course-cost">
+                <span class="course-price">300 ج.م<span class="course-per"> / شهريًا</span></span>
+                <span class="course-deal">🎁 3 شهور بخصم: 600 ج.م</span>
+              </div>
               <a href="course.html" class="btn btn-primary btn-small">عرض الدورة</a>
             </div>
           </div>
         </article>
 
         <!-- 5 -->
-        <article class="course-card reveal" data-level="beginner" data-title="الخط العربي والإملاء السليم" data-desc="تعلّم قواعد الإملاء">
-          <div class="course-banner banner-5"><span>✍️</span><span class="course-level">مبتدئ</span></div>
+        <article class="course-card reveal" data-level="second-bac" data-title="تانية ثانوي بكالوريا لغة عربية نظام جديد" data-desc="منهج البكالوريا تانية ثانوي">
+          <div class="course-banner banner-5"><span>📚</span><span class="course-level">تانية ثانوي بكالوريا</span></div>
           <div class="course-body">
-            <h3>الخط العربي والإملاء السليم</h3>
-            <p class="course-desc">تعلّم قواعد الإملاء الصحيحة وجماليات الخط العربي في دورة عملية ممتعة.</p>
+            <h3>كورس تانية ثانوي بكالوريا</h3>
+            <p class="course-desc">منهج تانية ثانوي بكالوريا كاملًا مع التقييمات الشهرية والمراجعات النهائية المجانية.</p>
             <div class="course-meta">
-              <span>🎓 20 درسًا</span><span>⏱ 8 ساعات</span><span>⭐ 4.7</span>
+              <span>🎓 30 درسًا</span><span>⏱ 12 ساعة</span><span>⭐ 4.9</span>
             </div>
             <div class="course-footer">
-              <span class="course-price">250 <small>400</small> ج.م</span>
-              <a href="course.html" class="btn btn-primary btn-small">عرض الدورة</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 6 -->
-        <article class="course-card reveal" data-level="beginner" data-title="اللغة العربية للناطقين بغيرها حروف مفردات" data-desc="منهج متكامل لتعليم الحروف">
-          <div class="course-banner banner-6"><span>🗣️</span><span class="course-level">مبتدئ</span></div>
-          <div class="course-body">
-            <h3>اللغة العربية للناطقين بغيرها</h3>
-            <p class="course-desc">منهج متكامل لتعليم الحروف والكلمات والجمل، مع مهارات الاستماع والمحادثة.</p>
-            <div class="course-meta">
-              <span>🎓 36 درسًا</span><span>⏱ 16 ساعة</span><span>⭐ 4.9</span>
-            </div>
-            <div class="course-footer">
-              <span class="course-price">400 <small>600</small> ج.م</span>
-              <a href="course.html" class="btn btn-primary btn-small">عرض الدورة</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 7 -->
-        <article class="course-card reveal" data-level="intermediate" data-title="مهارات الكتابة والتعبير والإنشاء" data-desc="ارتقِ بمهاراتك الكتابية">
-          <div class="course-banner banner-2"><span>📝</span><span class="course-level">متوسط</span></div>
-          <div class="course-body">
-            <h3>مهارات الكتابة والتعبير والإنشاء</h3>
-            <p class="course-desc">ارتقِ بمهاراتك الكتابية: بناء الموضوع، الترابط، والسلامة اللغوية في الإنشاء.</p>
-            <div class="course-meta">
-              <span>🎓 22 درسًا</span><span>⏱ 9 ساعات</span><span>⭐ 4.8</span>
-            </div>
-            <div class="course-footer">
-              <span class="course-price">280 <small>420</small> ج.م</span>
-              <a href="course.html" class="btn btn-primary btn-small">عرض الدورة</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 8 -->
-        <article class="course-card reveal" data-level="advanced" data-title="العروض والقوافي علم العروض الشعر" data-desc="افهم أوزان الشعر العربي">
-          <div class="course-banner banner-1"><span>🎼</span><span class="course-level">متقدم</span></div>
-          <div class="course-body">
-            <h3>علم العروض والقوافي</h3>
-            <p class="course-desc">افهم أوزان الشعر العربي البحور والقوافي، وتذوق جمال الموسيقى الشعرية.</p>
-            <div class="course-meta">
-              <span>🎓 26 درسًا</span><span>⏱ 11 ساعة</span><span>⭐ 4.6</span>
-            </div>
-            <div class="course-footer">
-              <span class="course-price">320 <small>480</small> ج.م</span>
+              <div class="course-cost">
+                <span class="course-price">300 ج.م<span class="course-per"> / شهريًا</span></span>
+                <span class="course-deal">🎁 3 شهور بخصم: 600 ج.م</span>
+              </div>
               <a href="course.html" class="btn btn-primary btn-small">عرض الدورة</a>
             </div>
           </div>
@@ -238,10 +205,10 @@
         <div>
           <h4>الدورات</h4>
           <ul class="footer-links">
-            <li><a href="courses.html">قواعد اللغة العربية</a></li>
-            <li><a href="courses.html">البلاغة العربية</a></li>
-            <li><a href="courses.html">الأدب العربي</a></li>
-            <li><a href="courses.html">تحفيظ القرآن</a></li>
+            <li><a href="courses.html">كورس أولى ثانوي</a></li>
+            <li><a href="courses.html">كورس تانية ثانوي</a></li>
+            <li><a href="courses.html">كورس تالتة ثانوي</a></li>
+            <li><a href="courses.html">كورس البكالوريا</a></li>
           </ul>
         </div>
         <div>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="اختر طريقة الدفع المناسبة لك في منصة الأستاذ محمد - بطاقة بنكية، فودافون كاش، فوري، انستا باي" />
+  <title>اختيار طريقة الدفع | منصة الأستاذ محمد</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+</head>
+<body>
+
+  <!-- ===================== شريط التنقل ===================== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">📚</span>
+        <span>منصة الأستاذ محمد</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#home">الرئيسية</a></li>
+        <li><a href="index.html#features">لماذا نحن؟</a></li>
+        <li><a href="courses.html">الدورات</a></li>
+        <li><a href="index.html#teacher">عن المدرس</a></li>
+        <li><a href="index.html#pricing">الاشتراكات</a></li>
+        <li><a href="login.html">تسجيل الدخول</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-primary">سجّل الآن</a>
+        <button class="menu-toggle" aria-label="القائمة">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== اختيار طريقة الدفع ===================== -->
+  <section class="section pay-section" id="payment-method">
+    <div class="container" id="pay-method-app">
+      <div class="section-head reveal">
+        <span class="section-tag">اختيار طريقة الدفع</span>
+        <h2>خطوة واحدة تفصلك عن البدء 🚀</h2>
+        <p>راجع ملخص طلبك، اختار طريقة الدفع اللي تناسبك، وأكّد اشتراكك.</p>
+      </div>
+
+      <div class="pay-grid">
+
+        <!-- ملخص الطلب -->
+        <div class="card-panel reveal">
+          <h2><span class="icon">🧾</span> ملخص الطلب</h2>
+          <div class="summary-list">
+            <div class="summary-row"><b>📚 الدورة:</b><span id="order-course">كورس أولى ثانوي</span></div>
+            <div class="summary-row"><b>📅 الخطة:</b><span id="order-plan">شهريًا</span></div>
+            <div class="summary-row"><b>🧑 الطالب:</b><span id="order-name">—</span></div>
+            <div class="summary-row summary-total"><b>💵 الإجمالي:</b><span id="order-price">300 ج.م</span></div>
+          </div>
+          <p class="summary-note">
+            ⚠️ اختيارك للطريقة بيُرسل طلب الدفع ليك، وهيتم تأكيد تفعيل حسابك فور استلام الدفع.
+          </p>
+          <a href="select-course.html" class="btn btn-outline" style="width: 100%;">تعديل الدورة</a>
+        </div>
+
+        <!-- طريقة الدفع -->
+        <div class="card-panel reveal">
+          <h2><span class="icon">💳</span> اختر طريقة الدفع</h2>
+
+          <div class="pay-methods">
+            <label class="pay-method" data-label="أدخل رقم محفظة فودافون كاش" data-name="فودافون كاش">
+              <input type="radio" name="pay-method" value="vodafone" />
+              <span class="method-body"><span class="method-icon">📲</span><b>فودافون كاش</b></span>
+            </label>
+            <label class="pay-method" data-label="أدخل رقم محفظة انستا باي" data-name="انستا باي">
+              <input type="radio" name="pay-method" value="instapay" />
+              <span class="method-body"><span class="method-icon">⚡</span><b>انستا باي</b></span>
+            </label>
+            <label class="pay-method" data-label="أدخل رقم كود خدمة فوري" data-name="فوري">
+              <input type="radio" name="pay-method" value="fawry" />
+              <span class="method-body"><span class="method-icon">🏦</span><b>فوري</b></span>
+            </label>
+            <label class="pay-method" data-label="أدخل رقم البطاقة البنكية (16 رقم)" data-name="بطاقة بنكية">
+              <input type="radio" name="pay-method" value="card" />
+              <span class="method-body"><span class="method-icon">💳</span><b>بطاقة بنكية</b></span>
+            </label>
+          </div>
+
+          <div class="form-group" style="margin-top: 18px;">
+            <label id="pay-detail-label">اختر طريقة الدفع أولًا</label>
+            <input type="text" id="pay-detail" placeholder="—" disabled />
+          </div>
+
+          <button type="button" class="btn btn-primary btn-lg" style="width: 100%;" id="confirm-payment">تأكيد الدفع ✅</button>
+          <p class="auth-note">🔒 بعد التأكيد هتنتقل لصفحة الترحيب وتفعيل حسابك.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== الفوتر ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo">
+            <span class="logo-icon">📚</span>
+            <span>منصة الأستاذ محمد</span>
+          </a>
+          <p>منصة تعليمية متخصصة في اللغة العربية وعلومها، نهدف لنشر حب العربية وتيسير تعلمها لكل من يريد إتقانها.</p>
+        </div>
+        <div>
+          <h4>روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">الرئيسية</a></li>
+            <li><a href="courses.html">الدورات</a></li>
+            <li><a href="index.html#teacher">عن المدرس</a></li>
+            <li><a href="index.html#pricing">الاشتراكات</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>الدورات</h4>
+          <ul class="footer-links">
+            <li><a href="courses.html">كورس أولى ثانوي</a></li>
+            <li><a href="courses.html">كورس تانية ثانوي</a></li>
+            <li><a href="courses.html">كورس تالتة ثانوي</a></li>
+            <li><a href="courses.html">كورس البكالوريا</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>النشرة البريدية</h4>
+          <p>اشترك ليصلك جديد الدورات والعروض الحصرية:</p>
+          <form class="newsletter-box">
+            <input type="email" placeholder="بريدك الإلكتروني..." />
+            <button type="submit">اشترك</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 منصة الأستاذ محمد - جميع الحقوق محفوظة | صُنع بحب للغة العربية 💙</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- زر العودة للأعلى -->
+  <button class="back-to-top" aria-label="العودة للأعلى">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

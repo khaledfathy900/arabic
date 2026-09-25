@@ -622,6 +622,30 @@ img {
   text-decoration: line-through;
 }
 
+.course-cost {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.course-per {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-soft);
+}
+
+.course-deal {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #b07d0a;
+  background: rgba(245, 166, 35, 0.14);
+  border: 1px solid rgba(245, 166, 35, 0.45);
+  padding: 4px 10px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
 .btn-small {
   padding: 8px 20px;
   font-size: 0.9rem;
@@ -900,6 +924,13 @@ img {
   font-size: 1rem;
   color: var(--text-soft);
   font-weight: 600;
+}
+
+.price-amount small del {
+  font-size: 0.95rem;
+  color: #e05252;
+  font-weight: 700;
+  margin-right: 6px;
 }
 
 .price-card ul {
@@ -1862,5 +1893,450 @@ img {
 
   .scroll-progress {
     display: none;
+  }
+}
+
+/* ===================== صفحة تسجيل الدخول ===================== */
+.auth-section {
+  padding: 70px 0;
+}
+
+.auth-card {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.auth-note {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+.plan-pills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.plan-pill {
+  position: relative;
+  cursor: pointer;
+}
+
+.plan-pill input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.plan-pill .pill-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  background: #fff;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.plan-pill:hover .pill-body {
+  transform: translateY(-2px);
+}
+
+.plan-pill input:checked + .pill-body {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.pill-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.pill-price del {
+  font-size: 0.95rem;
+  color: #e05252;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.pill-note {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+/* ===================== صفحة الدفع ===================== */
+.pay-section {
+  padding: 70px 0;
+}
+
+.pay-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 8px 0 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fbfcfe;
+  font-size: 0.95rem;
+}
+
+.summary-row span {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.summary-row.summary-total {
+  border-color: rgba(21, 84, 196, 0.35);
+  background: var(--primary-light);
+}
+
+.summary-row.summary-total span {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.summary-note {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  margin-bottom: 16px;
+}
+
+.pay-methods {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.pay-method {
+  position: relative;
+  cursor: pointer;
+}
+
+.pay-method input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pay-method .method-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 12px;
+  background: #fff;
+  text-align: center;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.pay-method:hover .method-body {
+  transform: translateY(-2px);
+}
+
+.pay-method input:checked + .method-body {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.method-icon {
+  font-size: 1.7rem;
+}
+
+.success-box {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+  padding: 40px 24px;
+  border: 2px solid rgba(22, 163, 74, 0.35);
+  border-radius: 16px;
+  background: rgba(22, 163, 74, 0.08);
+}
+
+.success-box.show {
+  display: block;
+  animation: cardPop 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.success-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.success-box h3 {
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
+.success-box p {
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .pay-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pay-methods {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================== الصفحة الترحيبية ===================== */
+.welcome-box {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.welcome-box .section-tag {
+  margin: 14px auto 0;
+}
+
+.welcome-box h1 {
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+  margin: 18px 0 10px;
+  line-height: 1.6;
+}
+
+.welcome-box p {
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.welcome-box .welcome-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.welcome-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+@media (max-width: 768px) {
+  .welcome-box h1 {
+    font-size: 1.5rem;
+  }
+
+  .welcome-actions .btn {
+    width: 100%;
+  }
+}
+
+/* ===================== ترحيب: معلومات إضافية ===================== */
+.welcome-info {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.welcome-who {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+/* ===================== صفحة اختيار الدورة ===================== */
+.course-select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.course-option {
+  position: relative;
+  cursor: pointer;
+}
+
+.course-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.course-option .course-option-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  text-align: center;
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 14px;
+  background: #fff;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.course-option:hover .course-option-body {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.course-option input:checked + .course-option-body {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  box-shadow: 0 8px 20px rgba(21, 84, 196, 0.15);
+}
+
+.course-option-icon {
+  font-size: 2rem;
+}
+
+.course-option-body b {
+  color: var(--primary-dark);
+  font-size: 1.05rem;
+}
+
+.course-option-body small {
+  color: var(--text-soft);
+  line-height: 1.7;
+  font-size: 0.85rem;
+}
+
+.plan-block {
+  margin-top: 24px;
+}
+
+.plan-block label {
+  display: block;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#select-course-app .btn-lg {
+  margin-top: 18px;
+}
+
+/* ===================== حساب المستخدم: شريط التنقل ===================== */
+.account-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary-light);
+  border: 1px solid rgba(21, 84, 196, 0.25);
+  border-radius: 999px;
+  padding: 4px 14px 4px 6px;
+  text-decoration: none;
+  max-width: 200px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.account-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.account-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.account-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.account-name {
+  font-weight: 800;
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ===================== صورة الحساب في نموذج التسجيل ===================== */
+.avatar-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-top: 6px;
+}
+
+.avatar-preview {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+  margin-top: 10px;
+  display: block;
+}
+
+/* ===================== صورة الحساب في صفحة الترحيب ===================== */
+.welcome-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 14px auto 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 900;
+  box-shadow: 0 8px 24px rgba(13, 58, 138, 0.25);
+}
+
+.welcome-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .account-name {
+    max-width: 90px;
   }
 }

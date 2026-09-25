@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="اختر الدورة المناسبة لك في منصة الأستاذ محمد - أولى وتانية وتالتة ثانوي وبكالوريا" />
+  <title>اختيار الدورة | منصة الأستاذ محمد</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+</head>
+<body>
+
+  <!-- ===================== شريط التنقل ===================== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">📚</span>
+        <span>منصة الأستاذ محمد</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#home">الرئيسية</a></li>
+        <li><a href="index.html#features">لماذا نحن؟</a></li>
+        <li><a href="courses.html">الدورات</a></li>
+        <li><a href="index.html#teacher">عن المدرس</a></li>
+        <li><a href="index.html#pricing">الاشتراكات</a></li>
+        <li><a href="login.html">تسجيل الدخول</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-primary">سجّل الآن</a>
+        <button class="menu-toggle" aria-label="القائمة">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== اختيار الدورة ===================== -->
+  <section class="section auth-section" id="select-course">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">اختيار الدورة</span>
+        <h2>اختار الدورة المناسبة ليك 📚</h2>
+        <p id="welcome-who" class="welcome-who"></p>
+        <p>اختار كورسك وحدد خطة الاشتراك، وبعدين هتنتقل لاختيار طريقة الدفع.</p>
+      </div>
+
+      <div class="auth-card card-panel reveal" id="select-course-app">
+        <div class="course-select-grid">
+          <label class="course-option">
+            <input type="radio" name="selected-course" value="كورس أولى ثانوي" />
+            <span class="course-option-body">
+              <span class="course-option-icon">📘</span>
+              <b>كورس أولى ثانوي</b>
+              <small>نحو وبلاغة وأدب ونصوص بأسلوب مبسّط للمذاكرة من أول يوم.</small>
+            </span>
+          </label>
+
+          <label class="course-option">
+            <input type="radio" name="selected-course" value="كورس تانية ثانوي" />
+            <span class="course-option-body">
+              <span class="course-option-icon">📗</span>
+              <b>كورس تانية ثانوي</b>
+              <small>تأسيس قوي وتغطية كاملة للمنهج بشرح سلس ومركز.</small>
+            </span>
+          </label>
+
+          <label class="course-option">
+            <input type="radio" name="selected-course" value="كورس تالتة ثانوي" />
+            <span class="course-option-body">
+              <span class="course-option-icon">📕</span>
+              <b>كورس تالتة ثانوي</b>
+              <small>استعد للثانوية العامة بمراجعات وتدريبات على كل أجزاء المنهج.</small>
+            </span>
+          </label>
+
+          <label class="course-option">
+            <input type="radio" name="selected-course" value="كورس أولى ثانوي بكالوريا" />
+            <span class="course-option-body">
+              <span class="course-option-icon">🎓</span>
+              <b>كورس أولى ثانوي بكالوريا</b>
+              <small>منهج البكالوريا الجديد بأسلوب تفاعلي حديث ومناسب.</small>
+            </span>
+          </label>
+
+          <label class="course-option">
+            <input type="radio" name="selected-course" value="كورس تانية ثانوي بكالوريا" />
+            <span class="course-option-body">
+              <span class="course-option-icon">🎓</span>
+              <b>كورس تانية ثانوي بكالوريا</b>
+              <small>تابع رحلة البكالوريا بخطة واضحة ومراجعات دورية.</small>
+            </span>
+          </label>
+        </div>
+
+        <div class="form-group plan-block">
+          <label>خطة الاشتراك</label>
+          <div class="plan-pills">
+            <label class="plan-pill">
+              <input type="radio" name="plan" value="monthly" checked />
+              <span class="pill-body">
+                <b>شهريًا</b>
+                <span class="pill-price">300 ج.م</span>
+                <span class="pill-note">دفع كل شهر</span>
+              </span>
+            </label>
+            <label class="plan-pill">
+              <input type="radio" name="plan" value="quarter" />
+              <span class="pill-body">
+                <b>خصم التلاتة 🎁</b>
+                <span class="pill-price">600 ج.م <del>900</del></span>
+                <span class="pill-note">3 شهور — الأكثر توفيرًا</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-lg" id="continue-payment" style="width: 100%;">متابعة لاختيار طريقة الدفع 💳</button>
+        <p class="auth-note">🔒 بعد الاختيار هتنتقل لصفحة اختيار طريقة الدفع: بطاقة / فودافون كاش / فوري / انستا باي.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== الفوتر ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo">
+            <span class="logo-icon">📚</span>
+            <span>منصة الأستاذ محمد</span>
+          </a>
+          <p>منصة تعليمية متخصصة في اللغة العربية وعلومها، نهدف لنشر حب العربية وتيسير تعلمها لكل من يريد إتقانها.</p>
+        </div>
+        <div>
+          <h4>روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">الرئيسية</a></li>
+            <li><a href="courses.html">الدورات</a></li>
+            <li><a href="index.html#teacher">عن المدرس</a></li>
+            <li><a href="index.html#pricing">الاشتراكات</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>الدورات</h4>
+          <ul class="footer-links">
+            <li><a href="courses.html">كورس أولى ثانوي</a></li>
+            <li><a href="courses.html">كورس تانية ثانوي</a></li>
+            <li><a href="courses.html">كورس تالتة ثانوي</a></li>
+            <li><a href="courses.html">كورس البكالوريا</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>النشرة البريدية</h4>
+          <p>اشترك ليصلك جديد الدورات والعروض الحصرية:</p>
+          <form class="newsletter-box">
+            <input type="email" placeholder="بريدك الإلكتروني..." />
+            <button type="submit">اشترك</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 منصة الأستاذ محمد - جميع الحقوق محفوظة | صُنع بحب للغة العربية 💙</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- زر العودة للأعلى -->
+  <button class="back-to-top" aria-label="العودة للأعلى">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

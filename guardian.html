@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="أدخل رقم ولي الأمر لتأكيد تسجيلك في منصة الأستاذ محمد" />
+  <title>بيانات ولي الأمر | منصة الأستاذ محمد</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+</head>
+<body>
+
+  <!-- ===================== شريط التنقل ===================== -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">📚</span>
+        <span>منصة الأستاذ محمد</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#home">الرئيسية</a></li>
+        <li><a href="index.html#features">لماذا نحن؟</a></li>
+        <li><a href="courses.html">الدورات</a></li>
+        <li><a href="index.html#teacher">عن المدرس</a></li>
+        <li><a href="index.html#pricing">الاشتراكات</a></li>
+        <li><a href="login.html">تسجيل الدخول</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-primary">سجّل الآن</a>
+        <button class="menu-toggle" aria-label="القائمة">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== بيانات ولي الأمر ===================== -->
+  <section class="section auth-section" id="guardian">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">بيانات ولي الأمر</span>
+        <h2>رقم ولي الأمر 👨‍👩‍👧</h2>
+        <p>خطوة أخيرة — املى بيانات ولي الأمر علشان نأكد التسجيل، وبعدها هتظهرلك الصفحة الترحيبية.</p>
+      </div>
+
+      <div class="auth-card card-panel reveal">
+        <form id="guardian-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guardian-name">اسم ولي الأمر</label>
+              <input type="text" id="guardian-name" placeholder="مثال: أحمد محمود" />
+            </div>
+            <div class="form-group">
+              <label for="guardian-phone">رقم ولي الأمر</label>
+              <input type="tel" id="guardian-phone" placeholder="01xxxxxxxxx" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="guardian-relation">صلة القرابة</label>
+            <select id="guardian-relation">
+              <option value="">اختر صلة القرابة...</option>
+              <option value="الأب">الأب</option>
+              <option value="الأم">الأم</option>
+              <option value="الأخ">الأخ</option>
+              <option value="الأخت">الأخت</option>
+              <option value="جد / جدة">جد / جدة</option>
+              <option value="أخرى">أخرى</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">تأكيد التسجيل ✅</button>
+          <p class="auth-note">🔒 رقم ولي الأمر بيُطلب فقط لتأكيد التسجيل، وبياناتك كلها سرية.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== الفوتر ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo">
+            <span class="logo-icon">📚</span>
+            <span>منصة الأستاذ محمد</span>
+          </a>
+          <p>منصة تعليمية متخصصة في اللغة العربية وعلومها، نهدف لنشر حب العربية وتيسير تعلمها لكل من يريد إتقانها.</p>
+        </div>
+        <div>
+          <h4>روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">الرئيسية</a></li>
+            <li><a href="courses.html">الدورات</a></li>
+            <li><a href="index.html#teacher">عن المدرس</a></li>
+            <li><a href="index.html#pricing">الاشتراكات</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>الدورات</h4>
+          <ul class="footer-links">
+            <li><a href="courses.html">كورس أولى ثانوي</a></li>
+            <li><a href="courses.html">كورس تانية ثانوي</a></li>
+            <li><a href="courses.html">كورس تالتة ثانوي</a></li>
+            <li><a href="courses.html">كورس البكالوريا</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>النشرة البريدية</h4>
+          <p>اشترك ليصلك جديد الدورات والعروض الحصرية:</p>
+          <form class="newsletter-box">
+            <input type="email" placeholder="بريدك الإلكتروني..." />
+            <button type="submit">اشترك</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 منصة الأستاذ محمد - جميع الحقوق محفوظة | صُنع بحب للغة العربية 💙</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- زر العودة للأعلى -->
+  <button class="back-to-top" aria-label="العودة للأعلى">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
