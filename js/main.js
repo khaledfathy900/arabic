@@ -371,7 +371,7 @@ if (finePointer) {
   });
 })();
 
-// ============ نموذج التسجيل (عمل حساب كامل) ============
+// ============ نموذج التسجيل / الدخول (حساب كامل حقيقي) ============
 const loginForm = document.querySelector("#login-form");
 
 if (loginForm) {
@@ -380,19 +380,89 @@ if (loginForm) {
     return el ? (el.value || "").trim() : "";
   };
 
+  // وضع المصادقة: register (جديد) أو login (موجود)
+  if (!loginForm.dataset.mode) loginForm.dataset.mode = "register";
+
+  const authTabs = loginForm.querySelectorAll(".auth-tab");
+  authTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const mode = tab.dataset.mode;
+      authTabs.forEach((t) => t.classList.toggle("active", t === tab));
+      loginForm.dataset.mode = mode;
+      const regOnly = loginForm.querySelector(".register-only-fields");
+      if (regOnly) regOnly.classList.toggle("hidden", mode === "login");
+      const submitBtn = loginForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.textContent = mode === "login" ? "دخول ▶" : "متابعة لاختيار الدورة ⏭";
+      }
+      const note = loginForm.querySelector(".auth-note");
+      if (note) {
+        note.textContent =
+          mode === "login"
+            ? "🔒 سجّل دخولك بحسابك السابق لاستكمال رحلتك."
+            : "🔒 بياناتك بأمان تام — هنعمل ليك حساب كامل، وبعدها تختار الدورة.";
+      }
+    });
+  });
+
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const name = getVal("#login-name");
-    const phone = getVal("#login-phone");
+    const mode = loginForm.dataset.mode || "register";
     const email = getVal("#login-email");
     const pass = getVal("#login-pass");
 
-    if (!name || !phone || !email || !pass) {
-      showToast("⚠️ يرجى تعبئة جميع الحقول المطلوبة");
+    if (!email || !pass) {
+      showToast("⚠️ يرجى إدخال البريد الإلكتروني وكلمة المرور");
       return;
     }
     if (!email.includes("@")) {
       showToast("⚠️ يرجى إدخال بريد إلكتروني صحيح");
+      return;
+    }
+
+    // ---------- تسجيل دخول بحساب موجود ----------
+    if (mode === "login") {
+      if (typeof authConfigured !== "function" || !authConfigured()) {
+        showToast("⚠️ ميزة الحسابات السحابية مش مفعّلة — أضف مفاتيح Supabase");
+        return;
+      }
+      try {
+        const result = await authLogin(email, pass);
+        const profile = result.profile;
+        const account = {
+          name: (profile && profile.full_name) || email.split("@")[0],
+          phone: (profile && profile.phone) || "",
+          email: email,
+          pass: pass,
+          loginMode: true
+        };
+        if (profile) {
+          if (profile.avatar) account.avatar = profile.avatar;
+          if (profile.course) {
+            account.course = profile.course;
+            account.planLabel = profile.plan || "شهريًا";
+            account.price = profile.price || 300;
+            account.payMethodLabel = profile.pay_method || null;
+          }
+        }
+        try {
+          localStorage.setItem("arabicAccount", JSON.stringify(account));
+        } catch (err) { /* تجاهل */ }
+        showToast("✅ أهلًا بعودتك يا " + account.name + "!");
+        window.location.href = "select-course.html";
+      } catch (err) {
+        showToast("⚠️ " + err.message);
+        return;
+      }
+      return;
+    }
+
+    // ---------- إنشاء حساب جديد ----------
+    const name = getVal("#login-name");
+    const phone = getVal("#login-phone");
+
+    if (!name || !phone) {
+      showToast("⚠️ يرجى تعبئة جميع الحقول المطلوبة");
       return;
     }
     if (phone.replace(/\D/g, "").length < 10) {
@@ -419,12 +489,25 @@ if (loginForm) {
       }
     }
 
+    // إنشاء الحساب الحقيقي في السحابة (إن كانت مفعّلة)
+    if (typeof authConfigured === "function" && authConfigured()) {
+      try {
+        await authRegister(account);
+        showToast("✅ تم إنشاء حسابك الحقيقي بنجاح!");
+      } catch (err) {
+        showToast("⚠️ " + err.message);
+        return;
+      }
+    } else if (typeof authConfigured === "function") {
+      // بدون مفاتيح: تحذير في الكونسول
+      console.warn("[auth] Supabase غير مكوّن — الحساب محفوظ محليًا فقط");
+    }
+
     try {
       localStorage.setItem("arabicAccount", JSON.stringify(account));
     } catch (err) {
       /* التخزين غير متاح — نكمل بالتوجيه مباشرة */
     }
-    showToast("✅ تم إنشاء حسابك بنجاح!");
     window.location.href = "select-course.html";
   });
 }
@@ -591,6 +674,10 @@ if (payMethodApp) {
         localStorage.setItem("arabicAccount", JSON.stringify(data));
       } catch (err) {
         /* تجاهل */
+      }
+      // تحديث بيانات الطالب في السحابة (إن كانت مفعّلة)
+      if (typeof authConfigured === "function" && authConfigured()) {
+        authUpdateProfile(data).catch(() => { /* تجاهل */ });
       }
       showToast("✅ تم تأكيد الدفع بنجاح!");
       window.location.href = "welcome.html";
@@ -760,34 +847,85 @@ if (welcomeApp) {
   } catch (err) {
     acc = null;
   }
-  const loggedIn = !!(acc && acc.name);
-  if (!loggedIn) return;
 
-  const avatarHtml = acc.avatar
-    ? '<img src="' + acc.avatar + '" alt="صورة الحساب" />'
-    : '<span class="avatar-letter">' + firstLetterOf(acc.name) + "</span>";
+  const applyChip = (account) => {
+    const avatarHtml = account.avatar
+      ? '<img src="' + account.avatar + '" alt="صورة الحساب" />'
+      : '<span class="avatar-letter">' + firstLetterOf(account.name) + "</span>";
 
-  document.querySelectorAll(".nav-actions").forEach((actions) => {
-    const cta = actions.querySelector(".btn-primary");
-    if (cta) {
-      const chip = document.createElement("a");
-      chip.href = "welcome.html";
-      chip.className = "account-chip";
-      chip.title = "حسابي";
-      chip.innerHTML =
-        '<span class="account-avatar">' + avatarHtml + "</span>" +
-        '<span class="account-name"></span>';
-      chip.querySelector(".account-name").textContent = acc.name;
-      chip.addEventListener("click", () => {
-        if (navLinks) navLinks.classList.remove("open");
-      });
-      cta.replaceWith(chip);
+    document.querySelectorAll(".nav-actions").forEach((actions) => {
+      const cta = actions.querySelector(".btn-primary");
+      if (cta) {
+        const chip = document.createElement("a");
+        chip.href = "welcome.html";
+        chip.className = "account-chip";
+        chip.title = "حسابي";
+        chip.innerHTML =
+          '<span class="account-avatar">' + avatarHtml + "</span>" +
+          '<span class="account-name"></span>';
+        chip.querySelector(".account-name").textContent = account.name;
+        chip.addEventListener("click", () => {
+          if (navLinks) navLinks.classList.remove("open");
+        });
+        if (!actions.querySelector(".account-chip")) {
+          cta.replaceWith(chip);
+        }
+      }
+    });
+
+    // رابط "تسجيل الدخول" في القائمة ← "حسابي"
+    document.querySelectorAll('.nav-links a[href="login.html"]').forEach((link) => {
+      link.textContent = "حسابي";
+      link.href = "welcome.html";
+    });
+
+    // تحديث سطر الترحيب في صفحة اختيار الدورة إن وُجد
+    const whoEl = document.querySelector("#welcome-who");
+    if (whoEl && account.name) {
+      whoEl.textContent = "أهلًا " + account.name + " 👋";
     }
-  });
+  };
 
-  // رابط "تسجيل الدخول" في القائمة ← "حسابي"
-  document.querySelectorAll('.nav-links a[href="login.html"]').forEach((link) => {
-    link.textContent = "حسابي";
-    link.href = "welcome.html";
-  });
+  if (acc && acc.name) {
+    applyChip(acc);
+  }
+
+  // لا يوجد حساب محلي لكن الجلسة السحابية موجودة → استرجاعها من Supabase
+  if (!(acc && acc.name) && typeof authConfigured === "function" && authConfigured()) {
+    authRestoreSession()
+      .then((session) => (session ? authFetchProfile(session) : null))
+      .then((profile) => {
+        if (profile && profile.full_name) {
+          const remote = {
+            name: profile.full_name,
+            phone: profile.phone || "",
+            email: profile.email || "",
+            avatar: profile.avatar || null,
+            course: profile.course || null,
+            planLabel: profile.plan || null,
+            price: profile.price || null,
+            payMethodLabel: profile.pay_method || null,
+            cloudSession: true
+          };
+          try {
+            localStorage.setItem("arabicAccount", JSON.stringify(remote));
+          } catch (err) { /* تجاهل */ }
+          applyChip(remote);
+        }
+      })
+      .catch(() => { /* تجاهل */ });
+  }
 })();
+
+// ============ تسجيل الخروج ============
+document.querySelectorAll("[data-action='logout']").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (typeof authLogout === "function") authLogout();
+    try {
+      localStorage.removeItem("arabicAccount");
+    } catch (err) { /* تجاهل */ }
+    showToast("👋 تم تسجيل الخروج");
+    window.location.href = "index.html";
+  });
+});

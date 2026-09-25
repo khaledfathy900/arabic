@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# ملفات التدفق الداخلية لا تُفهرس
+Disallow: /guardian.html
+Disallow: /payment.html
+
+Sitemap: https://manasa-mohamed.com/sitemap.xml

@@ -11,6 +11,39 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+
+  <!-- ===================== SEO ===================== -->
+  <meta name="author" content="منصة الأستاذ محمد" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#1554c4" />
+  <link rel="canonical" href="https://manasa-mohamed.com/login.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="منصة الأستاذ محمد" />
+  <meta property="og:locale" content="ar_EG" />
+  <meta property="og:title" content="تسجيل الدخول | منصة الأستاذ محمد" />
+  <meta property="og:description" content="أنشئ حسابك في منصة الأستاذ محمد واختر دورتك وطريقة الدفع لبدء رحلتك في تعلم اللغة العربية." />
+  <meta property="og:url" content="https://manasa-mohamed.com/login.html" />
+  <meta property="og:image" content="https://manasa-mohamed.com/assets/og-cover.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="تسجيل الدخول | منصة الأستاذ محمد" />
+  <meta name="twitter:description" content="أنشئ حسابك في منصة الأستاذ محمد واختر دورتك وطريقة الدفع لبدء رحلتك في تعلم اللغة العربية." />
+  <meta name="twitter:image" content="https://manasa-mohamed.com/assets/og-cover.png" />
+
+  <!-- بيانات منظمة -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "تسجيل الدخول - منصة الأستاذ محمد",
+    "url": "https://manasa-mohamed.com/login.html",
+    "inLanguage": "ar",
+    "isPartOf": { "@type": "WebSite", "name": "منصة الأستاذ محمد", "url": "https://manasa-mohamed.com/" }
+  }
+  </script>
 </head>
 <body>
 
@@ -49,14 +82,29 @@
 
       <div class="auth-card card-panel reveal">
         <form id="login-form" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="login-name">الاسم الكامل</label>
-              <input type="text" id="login-name" placeholder="أدخل اسمك الكامل" />
+          <div class="auth-tabs" role="tablist">
+            <button type="button" class="auth-tab active" data-mode="register">حساب جديد</button>
+            <button type="button" class="auth-tab" data-mode="login">تسجيل دخول</button>
+          </div>
+
+          <!-- حقول الحساب الجديد فقط: اسم / هاتف / صورة -->
+          <div class="register-only-fields">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="login-name">الاسم الكامل</label>
+                <input type="text" id="login-name" placeholder="أدخل اسمك الكامل" />
+              </div>
+              <div class="form-group">
+                <label for="login-phone">رقم الهاتف</label>
+                <input type="tel" id="login-phone" placeholder="01xxxxxxxxx" />
+              </div>
             </div>
+
             <div class="form-group">
-              <label for="login-phone">رقم الهاتف</label>
-              <input type="tel" id="login-phone" placeholder="01xxxxxxxxx" />
+              <label for="login-avatar">صورة الحساب (اختياري)</label>
+              <input type="file" id="login-avatar" accept="image/*" />
+              <span class="avatar-hint" id="avatar-hint-text">📸 اختياري — لو مش مخترها هيظهر أول حرف من اسمك</span>
+              <img id="avatar-preview" class="avatar-preview" alt="معاينة الصورة" hidden />
             </div>
           </div>
 
@@ -69,13 +117,6 @@
               <label for="login-pass">كلمة المرور</label>
               <input type="password" id="login-pass" placeholder="********" />
             </div>
-          </div>
-
-          <div class="form-group">
-            <label for="login-avatar">صورة الحساب (اختياري)</label>
-            <input type="file" id="login-avatar" accept="image/*" />
-            <span class="avatar-hint" id="avatar-hint-text">📸 اختياري — لو مش مخترها هيظهر أول حرف من اسمك</span>
-            <img id="avatar-preview" class="avatar-preview" alt="معاينة الصورة" hidden />
           </div>
 
           <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">متابعة لاختيار الدورة ⏭</button>
@@ -132,6 +173,7 @@
   <!-- زر العودة للأعلى -->
   <button class="back-to-top" aria-label="العودة للأعلى">↑</button>
 
+  <script src="js/auth.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
